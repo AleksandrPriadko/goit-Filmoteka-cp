@@ -5,6 +5,8 @@ const refs = {
   inputQuery: document.querySelector('.filmSearch'),
   gallery: document.querySelector('[data-index="gallery"]'),
   galleryItem: () => document.querySelector('#gallery-item'),
+  paginationContainer: document.querySelector('#pagination-container'),
+  paginationDataContainer: document.querySelector('#data-container'),
   //adder by Dr.Frame
   inputRef: document.querySelector('.filmSearch__input'),
   galleryRef: document.querySelector('.movie__list'),

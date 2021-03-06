@@ -1,12 +1,20 @@
 import './styles.scss';
 import './js/myLibrary';
 const _ = require('lodash');
+import Pagination from 'tui-pagination';
 import refs from './js/refs';
 import apiFetch from './js/apiService.js';
 import './js/open-close-modal';
 import popularFilmsGalerryTpl from './templates/filmgallery.hbs';
 import modalTpl from './templates/modal.hbs';
+import paginationTamplate from './templates/pagination.hbs';
 
+const pagination2 = new Pagination(refs.paginationContainer, {
+  totalItems: 1000,
+  itemsPerPage: 10,
+  visiblePages: 5,
+  centerAlign: true
+});
 //============== вставка Dr.Frame======================
 //=====================================================
 
@@ -64,7 +72,7 @@ function startPopularFilms() {
       totalResults = data.total_results;
       return data;
     })
-    .then(({ results }) => {
+    .then(({ results, total_pages }) => {
       handlePopularFilmMarkup(genreTransform(results, genreDB));
     });
 }
